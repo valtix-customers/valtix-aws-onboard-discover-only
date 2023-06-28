@@ -42,10 +42,10 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
         Action = [
           "acm:ListCertificates",
           "apigateway:GET",
-          "ec2:*Tags",
-          "ec2:*FlowLogs",
           "ec2:Describe*",
           "ec2:Get*",
+          "ec2:*Tags",
+          "ec2:*FlowLogs",
           "elasticloadbalancing:Describe*",
           "events:PutRule",
           "events:PutTargets",
