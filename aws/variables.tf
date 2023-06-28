@@ -52,13 +52,6 @@ variable "aws_valtix_controller_role" {
   type        = string
 }
 
-# AWS Valtix Firewall IAM Role Name
-variable "aws_valtix_firewall_role" {
-  description = "AWS IAM name for the Valtix Firewall Role"
-  default     = "valtix-firewall-role"
-  type        = string
-}
-
 # AWS Valtix Inventory IAM Role Name
 variable "aws_valtix_inventory_role" {
   description = "AWS IAM name for the Valtix Inventory Role"

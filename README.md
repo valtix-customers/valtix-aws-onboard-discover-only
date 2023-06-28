@@ -1,4 +1,4 @@
-# Onboard AWS Accounts into Valtix
+# Onboard AWS Accounts into Valtix for Discovery Only (no orchestration)
 
 # Authorization Requirements
 1. Enable Terraform to access your AWS Account. Check here for the options https://registry.terraform.io/providers/hashicorp/aws/latest/docs

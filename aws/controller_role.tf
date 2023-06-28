@@ -29,7 +29,7 @@ resource "aws_iam_role" "valtix_controller_role" {
   })
 }
 
-# AWS IAM Role Policy for the Valtix Controller related to orchestration
+# AWS IAM Role Policy for the Valtix Controller related to discovery (traffic, assets)
 # The IAM Role policy that defines the permissions for the Valtix Controller
 resource "aws_iam_role_policy" "valtix_controller_policy" {
   name = var.aws_valtix_controller_policy
@@ -42,18 +42,22 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
         Action = [
           "acm:ListCertificates",
           "apigateway:GET",
-          "ec2:*",
+          "ec2:*Tags",
+          "ec2:*FlowLogs",
+          "ec2:Describe*",
+          "ec2:Get*",
+          "elasticloadbalancing:Describe*",
           "events:PutRule",
           "events:PutTargets",
-          "events:DeleteRule",
-          "events:RemoveTargets",
-          "elasticloadbalancing:*",
-          "globalaccelerator:*",
+          "events:ListTargetsByRule",
+          "globalaccelerator:Describe*",
           "iam:ListPolicies",
           "iam:ListRoles",
           "iam:ListRoleTags",
-          "logs:*",
-          "route53resolver:*",
+          "logs:*LogDelivery",
+          "route53resolver:Get*",
+          "route53resolver:List*",
+          "route53resolver:*Resolver*",
           "servicequotas:GetServiceQuota",
           "s3:ListAllMyBuckets",
           "s3:ListBucket"
@@ -81,7 +85,6 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
         ],
         Effect = "Allow",
         Resource = [
-          aws_iam_role.valtix_firewall_role.arn,
           aws_iam_role.valtix_inventory_role.arn
         ]
       },

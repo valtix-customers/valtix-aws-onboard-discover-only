@@ -42,7 +42,6 @@ aws_valtix_s3_object_duration = 1
 aws_valtix_deployment_name    = "prod1"
 aws_valtix_controller_account = "425355469185"
 aws_valtix_controller_role    = "valtix-controller-role"
-aws_valtix_firewall_role      = "valtix-firewall-role"
 aws_valtix_inventory_role     = "valtix-inventory-role"
 aws_valtix_cloudtrail         = "valtix-cloudtrail"
 aws_valtix_controller_policy  = "valtix-controller-policy"

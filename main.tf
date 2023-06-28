@@ -18,7 +18,6 @@ module "aws" {
   aws_valtix_deployment_name    = var.aws_valtix_deployment_name
   aws_valtix_controller_account = var.aws_valtix_controller_account
   aws_valtix_controller_role    = var.aws_valtix_controller_role
-  aws_valtix_firewall_role      = var.aws_valtix_firewall_role
   aws_valtix_inventory_role     = var.aws_valtix_inventory_role
   aws_valtix_cloudtrail         = var.aws_valtix_cloudtrail
   aws_valtix_controller_policy  = var.aws_valtix_controller_policy
