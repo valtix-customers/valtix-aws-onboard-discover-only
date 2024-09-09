@@ -41,6 +41,13 @@ resource "aws_iam_role_policy" "valtix_inventory_policy" {
         Resource = [
           "arn:aws:events:*:${var.aws_valtix_controller_account}:event-bus/default"
         ]
+      },
+      {
+        Action = "events:InvokeApiDestination",
+        Effect = "Allow",
+        Resource = [
+          "arn:aws:events:*:${var.aws_account_number}:api-destination/*"
+        ]
       }
     ]
   })

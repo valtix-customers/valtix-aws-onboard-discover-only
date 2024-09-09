@@ -40,6 +40,7 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
     Statement = [
       {
         Action = [
+          "acm:DescribeCertificate",
           "acm:ListCertificates",
           "apigateway:GET",
           "ec2:Describe*",
@@ -60,7 +61,9 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
           "route53resolver:*Resolver*",
           "servicequotas:GetServiceQuota",
           "s3:ListAllMyBuckets",
-          "s3:ListBucket"
+          "s3:ListBucket",
+          "wafv2:Get*",
+          "wafv2:List*"
         ],
         Effect   = "Allow",
         Resource = "*"
@@ -73,14 +76,12 @@ resource "aws_iam_role_policy" "valtix_controller_policy" {
         ],
         Effect = "Allow",
         Resource = [
-          aws_iam_role.valtix_controller_role.arn
+          aws_iam_role.valtix_controller_role.arn,
+          aws_iam_role.valtix_inventory_role.arn
         ]
       },
       {
         Action = [
-          "iam:GetRole",
-          "iam:GetRolePolicy",
-          "iam:ListRolePolicies",
           "iam:PassRole"
         ],
         Effect = "Allow",
